@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import ConvexClientProvider from "@/components/providers/convex-provider";
+import ThemeProvider from "@/components/providers/theme-provider";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ThemeProvider from "@/components/providers/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,15 +29,17 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          enableSystem
-          attribute="class"
-          defaultTheme="system"
-          disableTransitionOnChange
-          storageKey="jotion-theme-2"
-        >
-          {children}
-        </ThemeProvider>
+        <ConvexClientProvider>
+          <ThemeProvider
+            enableSystem
+            attribute="class"
+            defaultTheme="system"
+            disableTransitionOnChange
+            storageKey="jotion-theme-2"
+          >
+            {children}
+          </ThemeProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );

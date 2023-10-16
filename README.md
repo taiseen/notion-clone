@@ -7,11 +7,15 @@
 * npx shadcn-ui@latest add button
 * npx shadcn-ui@latest add dropdown-menu
 * npm install next-themes
+* npm install convex
+* npx convex dev
+* npm install @clerk/clerk-react
 
-First, run the development server:
 
 ```bash
-npm run dev
+npm run dev <== for running app
+
+npx convex dev <== for connect DB
 ```
 
 
