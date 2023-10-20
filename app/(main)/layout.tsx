@@ -1,7 +1,8 @@
-import Spinner from "@/components/spinner";
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
+import Navigation from "./_component/Navigation";
+import Spinner from "@/components/spinner";
 
 const DocumentLayout = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated, isLoading } = useConvexAuth();
@@ -18,9 +19,13 @@ const DocumentLayout = ({ children }: { children: ReactNode }) => {
     return redirect("/");
   }
 
-  return <div className="h-full flex dark:dark:bg-[#1F1F1F]">
-    <main>{children}</main>
-  </div>;
+  return (
+    <div className="h-full flex dark:dark:bg-[#1F1F1F]">
+      <Navigation />
+
+      <main>{children}</main>
+    </div>
+  );
 };
 
 export default DocumentLayout;
