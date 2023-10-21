@@ -15,6 +15,7 @@ const DocumentLayout = ({ children }: { children: ReactNode }) => {
     );
   }
 
+  // if user is not authenticated - redirect him to root page
   if (!isAuthenticated) {
     return redirect("/");
   }
