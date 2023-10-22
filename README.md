@@ -26,3 +26,4 @@ npx convex dev <== for connect DB
 * fab-icon dark/light theme toggle support
 * shardcn-ui dark/light theme toggle
 * custom hook for tracking scrolling
+* user auth system
