@@ -10,6 +10,7 @@
 * npm install convex
 * npx convex dev
 * npm install @clerk/clerk-react
+* npm install usehooks-ts
 
 
 ```bash
