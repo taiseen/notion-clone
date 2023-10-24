@@ -28,3 +28,4 @@ npx convex dev <== for connect DB
 * shardcn-ui dark/light theme toggle
 * custom hook for tracking scrolling
 * user auth system
+* sliding draggable side bar
