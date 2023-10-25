@@ -29,3 +29,4 @@ npx convex dev <== for connect DB
 * custom hook for tracking scrolling
 * user auth system
 * sliding draggable side bar
+* Demo
