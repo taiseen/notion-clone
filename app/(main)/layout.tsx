@@ -1,5 +1,4 @@
 "use client";
-
 import { useConvexAuth } from "convex/react";
 import { redirect } from "next/navigation";
 import { ReactNode } from "react";
@@ -18,15 +17,16 @@ const DocumentLayout = ({ children }: { children: ReactNode }) => {
   }
 
   // if user is not authenticated - redirect him to root page
-  if (!isAuthenticated) {
-    return redirect("/");
-  }
+  if (!isAuthenticated) return redirect("/");
 
   return (
     <div className="h-full flex dark:dark:bg-[#1F1F1F]">
       <Navigation />
 
-      <main>{children}</main>
+      <main className="flex-1 h-full overflow-y-auto">
+        {/* <SearchCommand /> */}
+        {children}
+      </main>
     </div>
   );
 };
