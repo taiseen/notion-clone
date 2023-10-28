@@ -5,24 +5,27 @@ import { useUser } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { PlusCircle } from "lucide-react";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 import Image from "next/image";
 
 const DocumentsPage = () => {
   const { user } = useUser();
-  // const router = useRouter();
-  // const create = useMutation(api.documents.create);
+  const router = useRouter();
+  const create = useMutation(api.documents.create);
 
   const onCreate = () => {
-    // const promise = create({ title: "Untitled" }).then((documentId) =>
-    //   router.push(`/documents/${documentId}`)
-    // );
+    // creating new document...
+    const promise = create({ title: "Untitled" });
 
-    // toast.promise(promise, {
-    //   loading: "Creating a new note...",
-    //   success: "New note created!",
-    //   error: "Failed to create a new note.",
-    // });
+    // & by that document id redirect user to that url...
+    // promise.then((documentId) => router.push(`/documents/${documentId}`));
+
+    // based on this creating status... show toast message...
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Failed to create a new note.",
+    });
   };
 
   return (
