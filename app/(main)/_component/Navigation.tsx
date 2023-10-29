@@ -1,25 +1,33 @@
 "use client";
-
 import { ElementRef, useRef, useState, useEffect } from "react";
-import { ChevronsLeft, MenuIcon } from "lucide-react";
+import { useQuery, useMutation } from "convex/react";
 import { usePathname } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { useMediaQuery } from "usehooks-ts";
-import { useQuery } from "convex/react";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 import UserItem from "./UserItem";
+import Item from "./Item";
+import {
+  ChevronsLeft,
+  PlusCircle,
+  Settings,
+  MenuIcon,
+  Search,
+} from "lucide-react";
 
 const Navigation = () => {
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
   const allDocument = useQuery(api.documents.get); // ctx...
+  const createDocument = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
-  const sideBarRef = useRef<ElementRef<"aside">>(null);
   const navbarRef = useRef<ElementRef<"div">>(null);
+  const sideBarRef = useRef<ElementRef<"aside">>(null);
   const [isResetting, setIsResetting] = useState<boolean>(false);
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(isMobile); // if in mobile sidebar auto collapse
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(isMobile); // if mobile, sidebar auto collapse
 
   useEffect(() => {
     // just tracking for isMobile || not...
@@ -104,6 +112,21 @@ const Navigation = () => {
     }
   };
 
+  const createDoc = () => {
+    // creating new document...
+    const promise = createDocument({ title: "Untitled" });
+
+    // & by that document id redirect user to that url...
+    // promise.then((documentId) => router.push(`/documents/${documentId}`));
+
+    // based on this creating status... show toast message...
+    toast.promise(promise, {
+      loading: "Creating a new note...",
+      success: "New note created!",
+      error: "Failed to create a new note.",
+    });
+  };
+
   return (
     <>
       <aside
@@ -127,6 +150,10 @@ const Navigation = () => {
 
         <div>
           <UserItem />
+
+          <Item label="Search" icon={Search} onClick={() => {}} isSearch />
+          <Item label="Settings" icon={Settings} onClick={() => {}} />
+          <Item label="New page" icon={PlusCircle} onClick={createDoc} />
         </div>
 
         <div className="mt-4">
