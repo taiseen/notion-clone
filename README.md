@@ -33,3 +33,4 @@ npx convex dev <== for connect DB
 * user auth system
 * sliding draggable side bar
 * TypeScript props passing
+* Design layout system
