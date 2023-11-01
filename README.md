@@ -34,3 +34,4 @@ npx convex dev <== for connect DB
 * sliding draggable side bar
 * TypeScript props passing
 * Design layout system
+* Resizing HTML element
