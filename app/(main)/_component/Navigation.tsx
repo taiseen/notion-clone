@@ -1,11 +1,12 @@
 "use client";
 import { ElementRef, useRef, useState, useEffect } from "react";
-import { useQuery, useMutation } from "convex/react";
 import { usePathname } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { useMediaQuery } from "usehooks-ts";
+import { useMutation } from "convex/react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import DocumentList from "./DocumentList";
 import UserItem from "./UserItem";
 import Item from "./Item";
 import {
@@ -20,7 +21,6 @@ const Navigation = () => {
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
-  const allDocument = useQuery(api.documents.get); // ctx...
   const createDocument = useMutation(api.documents.create);
 
   const isResizingRef = useRef(false);
@@ -157,9 +157,7 @@ const Navigation = () => {
         </div>
 
         <div className="mt-4">
-          {allDocument?.map((data) => (
-            <p key={data._id}>{data.title}</p>
-          ))}
+            <DocumentList />
         </div>
 
         <div
