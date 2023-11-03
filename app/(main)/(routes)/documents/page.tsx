@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { createStatus } from "@/constants/data";
 import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/clerk-react";
 import { useRouter } from "next/navigation";
@@ -21,11 +22,7 @@ const DocumentsPage = () => {
     // promise.then((documentId) => router.push(`/documents/${documentId}`));
 
     // based on this creating status... show toast message...
-    toast.promise(promise, {
-      loading: "Creating a new note...",
-      success: "New note created!",
-      error: "Failed to create a new note.",
-    });
+    toast.promise(promise, createStatus);
   };
 
   return (

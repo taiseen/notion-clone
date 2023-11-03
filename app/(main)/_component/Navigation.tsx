@@ -1,5 +1,6 @@
 "use client";
 import { ElementRef, useRef, useState, useEffect } from "react";
+import { createStatus } from "@/constants/data";
 import { usePathname } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { useMediaQuery } from "usehooks-ts";
@@ -120,11 +121,7 @@ const Navigation = () => {
     // promise.then((documentId) => router.push(`/documents/${documentId}`));
 
     // based on this creating status... show toast message...
-    toast.promise(promise, {
-      loading: "Creating a new note...",
-      success: "New note created!",
-      error: "Failed to create a new note.",
-    });
+    toast.promise(promise, createStatus);
   };
 
   return (
