@@ -2,6 +2,11 @@ import { mutation, query } from "./_generated/server";
 import { Doc, Id } from "./_generated/dataModel";
 import { v } from "convex/values";
 
+// const getUserId = async (ctx: any) => {
+//     const identity = await ctx.auth.getUserIdentity();
+//     if (!identity) throw new Error("Not authenticated");
+//     return identity.subject;
+// }
 
 export const get = query({
 
@@ -27,6 +32,8 @@ export const getSidebar = query({
         const identity = await ctx.auth.getUserIdentity();
         if (!identity) throw new Error("Not authenticated");
         const userId = identity.subject;
+
+        // const userId = getUserId(ctx);
 
         const documents = await ctx.db
             .query("documents")
@@ -116,3 +123,22 @@ export const archive = mutation({
         return document;
     }
 })
+
+export const getTrash = query({
+    handler: async (ctx) => {
+        const identity = await ctx.auth.getUserIdentity();
+        if (!identity) throw new Error("Not authenticated");
+        const userId = identity.subject;
+
+        const documents = await ctx.db
+            .query("documents")
+            .withIndex("by_user", (q) => q.eq("userId", userId))
+            .filter((q) =>
+                q.eq(q.field("isArchived"), true),
+            )
+            .order("desc")
+            .collect();
+
+        return documents;
+    }
+});

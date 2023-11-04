@@ -8,6 +8,7 @@
 * npx shadcn-ui@latest add avatar
 * npx shadcn-ui@latest add dropdown-menu
 * npx shadcn-ui@latest add skeleton
+* npx shadcn-ui@latest add popover
 * npm install next-themes
 * npm install convex
 * npx convex dev

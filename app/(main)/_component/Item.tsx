@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 interface ItemProps {
-  onClick: () => void;
+  onClick?: () => void;
   icon: LucideIcon;
   label: string;
   id?: Id<"documents">;

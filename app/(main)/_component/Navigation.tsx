@@ -16,7 +16,14 @@ import {
   Settings,
   MenuIcon,
   Search,
+  Plus,
+  Trash,
 } from "lucide-react";
+import {
+  PopoverTrigger,
+  PopoverContent,
+  Popover,
+} from "@/components/ui/popover";
 
 const Navigation = () => {
   const pathName = usePathname();
@@ -113,7 +120,7 @@ const Navigation = () => {
     }
   };
 
-  const createDoc = () => {
+  const handleCreateDocument = () => {
     // creating new document...
     const promise = createDocument({ title: "Untitled" });
 
@@ -150,11 +157,24 @@ const Navigation = () => {
 
           <Item label="Search" icon={Search} onClick={() => {}} isSearch />
           <Item label="Settings" icon={Settings} onClick={() => {}} />
-          <Item label="New page" icon={PlusCircle} onClick={createDoc} />
+          <Item label="New page" icon={PlusCircle} onClick={handleCreateDocument} />
         </div>
 
         <div className="mt-4">
-            <DocumentList />
+          <DocumentList />
+          <Item label="Add page" icon={Plus} onClick={handleCreateDocument} />
+
+          <Popover>
+            <PopoverTrigger className="w-full mt-4">
+              <Item label="Trash" icon={Trash} />
+            </PopoverTrigger>
+            <PopoverContent
+              className="p-0 w-72"
+              side={isMobile ? "bottom" : "right"}
+            >
+              {/* <TrashBox /> */} trash
+            </PopoverContent>
+          </Popover>
         </div>
 
         <div
