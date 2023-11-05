@@ -7,8 +7,10 @@
 * npx shadcn-ui@latest add button
 * npx shadcn-ui@latest add avatar
 * npx shadcn-ui@latest add dropdown-menu
+* npx shadcn-ui@latest add alert-dialog
 * npx shadcn-ui@latest add skeleton
 * npx shadcn-ui@latest add popover
+* npx shadcn-ui@latest add input
 * npm install next-themes
 * npm install convex
 * npx convex dev

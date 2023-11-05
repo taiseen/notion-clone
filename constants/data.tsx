@@ -9,3 +9,15 @@ export const createStatus = {
   success: "New note created!",
   error: "Failed to create a new note.",
 };
+
+export const deleteStatus = {
+  loading: "Deleting a new note...",
+  success: "Note deleted!",
+  error: "Failed to delete note.",
+};
+
+export const restoreStatus = {
+  loading: "Restoring note...",
+  success: "Note restored!",
+  error: " Failed to restore note.",
+};

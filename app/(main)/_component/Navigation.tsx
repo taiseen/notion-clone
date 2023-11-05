@@ -8,6 +8,7 @@ import { useMutation } from "convex/react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import DocumentList from "./DocumentList";
+import TrashBox from "./TrashBox";
 import UserItem from "./UserItem";
 import Item from "./Item";
 import {
@@ -25,11 +26,12 @@ import {
   Popover,
 } from "@/components/ui/popover";
 
+
 const Navigation = () => {
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
-  const createDocument = useMutation(api.documents.create);
+  const createDocument = useMutation(api.db.create.create);
 
   const isResizingRef = useRef(false);
   const navbarRef = useRef<ElementRef<"div">>(null);
@@ -172,7 +174,7 @@ const Navigation = () => {
               className="p-0 w-72"
               side={isMobile ? "bottom" : "right"}
             >
-              {/* <TrashBox /> */} trash
+              <TrashBox />
             </PopoverContent>
           </Popover>
         </div>

@@ -27,7 +27,7 @@ const DocumentList = ({ parentDocumentId, level = 0 }: DocumentListProps) => {
     }));
   };
 
-  const documents = useQuery(api.documents.getSidebar, {
+  const documents = useQuery(api.db.read.getSidebar, {
     parentDocument: parentDocumentId,
   });
 

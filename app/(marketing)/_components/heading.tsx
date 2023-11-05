@@ -3,7 +3,7 @@ import { SignInButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { useConvexAuth } from "convex/react";
 import { ArrowRight } from "lucide-react";
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/Spinner";
 import Link from "next/link";
 
 const Heading = () => {

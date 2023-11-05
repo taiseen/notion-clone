@@ -1,5 +1,4 @@
 "use client";
-
 import { archiveStatus, createStatus } from "@/constants/data";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Id } from "@/convex/_generated/dataModel";
@@ -55,10 +54,10 @@ const Item = ({
   active,
   id,
 }: ItemProps) => {
-  const { user } = useUser();
+  const archive = useMutation(api.db.update.archive);
+  const create = useMutation(api.db.create.create);
   const router = useRouter();
-  const create = useMutation(api.documents.create);
-  const archive = useMutation(api.documents.archive);
+  const { user } = useUser();
 
   const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
@@ -68,7 +67,7 @@ const Item = ({
     onExpand?.();
   };
 
-  const onCreate : MouseEventHandler = (event) => {
+  const onCreate: MouseEventHandler = (event) => {
     event.stopPropagation();
 
     if (!id) return;

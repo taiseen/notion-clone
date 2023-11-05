@@ -14,6 +14,10 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as db_create from "../db/create";
+import type * as db_delete from "../db/delete";
+import type * as db_read from "../db/read";
+import type * as db_update from "../db/update";
 import type * as documents from "../documents";
 
 /**
@@ -25,6 +29,10 @@ import type * as documents from "../documents";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "db/create": typeof db_create;
+  "db/delete": typeof db_delete;
+  "db/read": typeof db_read;
+  "db/update": typeof db_update;
   documents: typeof documents;
 }>;
 export declare const api: FilterApi<

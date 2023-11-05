@@ -5,7 +5,7 @@ import { useConvexAuth } from "convex/react";
 import { cn } from "@/lib/utils";
 import ModeToggle from "@/components/modeToggle";
 import useScrollTop from "@/hooks/useScrollTop";
-import Spinner from "@/components/spinner";
+import Spinner from "@/components/Spinner";
 import Link from "next/link";
 import Logo from "./logo";
 
