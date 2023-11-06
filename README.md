@@ -39,3 +39,4 @@ npx convex dev <== for connect DB
 * TypeScript props passing
 * Design layout system
 * Resizing HTML element
+* convex db query
