@@ -40,3 +40,6 @@ npx convex dev <== for connect DB
 * Design layout system
 * Resizing HTML element
 * convex db query
+* at Navigation.tsx - 
+    * inside handelMouseDown function implement `addEventListener`
+    * inside handelMouseUp function implement `removeEventListener`
