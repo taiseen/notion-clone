@@ -3,19 +3,23 @@
 # Notion Clone
 
 * npx create-next-app@latest notion-clone
+* npx convex dev
+
 * npx shadcn-ui@latest init
-* npx shadcn-ui@latest add button
-* npx shadcn-ui@latest add avatar
 * npx shadcn-ui@latest add dropdown-menu
 * npx shadcn-ui@latest add alert-dialog
 * npx shadcn-ui@latest add skeleton
+* npx shadcn-ui@latest add command
 * npx shadcn-ui@latest add popover
+* npx shadcn-ui@latest add avatar
+* npx shadcn-ui@latest add button
 * npx shadcn-ui@latest add input
-* npm install next-themes
-* npm install convex
-* npx convex dev
+
 * npm install @clerk/clerk-react
+* npm install next-themes
 * npm install usehooks-ts
+* npm install zustand
+* npm install convex
 * npm install sonner
 
 

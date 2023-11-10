@@ -8,6 +8,7 @@ import { useMutation } from "convex/react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import DocumentList from "./DocumentList";
+import useSearch from "@/hooks/useSearch";
 import TrashBox from "./TrashBox";
 import UserItem from "./UserItem";
 import Item from "./Item";
@@ -26,8 +27,8 @@ import {
   Popover,
 } from "@/components/ui/popover";
 
-
 const Navigation = () => {
+  const search = useSearch();
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
@@ -157,9 +158,13 @@ const Navigation = () => {
         <div>
           <UserItem />
 
-          <Item label="Search" icon={Search} onClick={() => {}} isSearch />
+          <Item label="Search" icon={Search} onClick={search.onOpen} isSearch />
           <Item label="Settings" icon={Settings} onClick={() => {}} />
-          <Item label="New page" icon={PlusCircle} onClick={handleCreateDocument} />
+          <Item
+            label="New page"
+            icon={PlusCircle}
+            onClick={handleCreateDocument}
+          />
         </div>
 
         <div className="mt-4">

@@ -3,7 +3,7 @@ import { SignInButton, UserButton } from "@clerk/clerk-react";
 import { Button } from "@/components/ui/button";
 import { useConvexAuth } from "convex/react";
 import { cn } from "@/lib/utils";
-import ModeToggle from "@/components/modeToggle";
+import ModeToggle from "@/components/ModeToggle";
 import useScrollTop from "@/hooks/useScrollTop";
 import Spinner from "@/components/Spinner";
 import Link from "next/link";
