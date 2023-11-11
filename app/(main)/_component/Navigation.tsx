@@ -134,6 +134,20 @@ const Navigation = () => {
     toast.promise(promise, createStatus);
   };
 
+  // for keyboard ctrl+b shortcut cmd...
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "b" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        
+        isResetting ? handelResetWidth() : handelCollapse();
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, [isResetting]);
+
   return (
     <>
       <aside
