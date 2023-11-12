@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import ConvexClientProvider from "@/components/providers/convex-provider";
-import ThemeProvider from "@/components/providers/theme-provider";
+import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
+import ThemeProvider from "@/components/providers/ThemeProvider";
+import ModalProvider from "@/components/providers/ModalProvider";
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -40,6 +41,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           >
             <Toaster position="bottom-center" />
             
+            <ModalProvider />
+
             {children}
           </ThemeProvider>
         </ConvexClientProvider>

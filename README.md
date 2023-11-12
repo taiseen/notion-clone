@@ -14,6 +14,7 @@
 * npx shadcn-ui@latest add avatar
 * npx shadcn-ui@latest add button
 * npx shadcn-ui@latest add input
+* npx shadcn-ui@latest add label
 
 * npm install @clerk/clerk-react
 * npm install next-themes

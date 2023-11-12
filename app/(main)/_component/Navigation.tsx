@@ -7,6 +7,7 @@ import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import useSettings from "@/hooks/useSettings";
 import DocumentList from "./DocumentList";
 import useSearch from "@/hooks/useSearch";
 import TrashBox from "./TrashBox";
@@ -29,6 +30,8 @@ import {
 
 const Navigation = () => {
   const search = useSearch();
+  const settings = useSettings();
+
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
@@ -139,7 +142,7 @@ const Navigation = () => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "b" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        
+
         isResetting ? handelResetWidth() : handelCollapse();
       }
     };
@@ -173,7 +176,7 @@ const Navigation = () => {
           <UserItem />
 
           <Item label="Search" icon={Search} onClick={search.onOpen} isSearch />
-          <Item label="Settings" icon={Settings} onClick={() => {}} />
+          <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
           <Item
             label="New page"
             icon={PlusCircle}
