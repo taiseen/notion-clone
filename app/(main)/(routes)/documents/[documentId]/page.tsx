@@ -1,4 +1,9 @@
-const DocumentById = () => {
+
+
+const DocumentIdPage = () => {
+
+  // console.log(documentId);
+  
   return (
     <div>
       <p>DocumentById</p>
@@ -6,4 +11,4 @@ const DocumentById = () => {
   );
 };
 
-export default DocumentById;
+export default DocumentIdPage;

@@ -1,7 +1,7 @@
 "use client";
 import { ElementRef, useRef, useState, useEffect } from "react";
 import { createStatus } from "@/constants/data";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { useMediaQuery } from "usehooks-ts";
 import { useMutation } from "convex/react";
@@ -27,11 +27,13 @@ import {
   PopoverContent,
   Popover,
 } from "@/components/ui/popover";
+import Navbar from "./Navbar";
 
 const Navigation = () => {
   const search = useSearch();
   const settings = useSettings();
 
+  const params = useParams();
   const pathName = usePathname();
   const isMobile = useMediaQuery("(max-width: 786px)");
 
@@ -218,15 +220,19 @@ const Navigation = () => {
           isMobile && "left-0 w-full"
         )}
       >
-        <nav className="bg-transparent px-3 py-2 w-full">
-          {isCollapsed && (
-            <MenuIcon
-              role="button"
-              onClick={handelResetWidth}
-              className="h-6 w-6 text-muted-foreground hover:bg-neutral-300 hover:text-gray-700 dark:hover:bg-neutral-300 rounded-sm transition"
-            />
-          )}
-        </nav>
+        {!!params.documentId ? (
+          <Navbar isCollapsed={isCollapsed} onResetWidth={handelResetWidth} />
+        ) : (
+          <nav className="bg-transparent px-3 py-2 w-full">
+            {isCollapsed && (
+              <MenuIcon
+                role="button"
+                onClick={handelResetWidth}
+                className="h-6 w-6 text-muted-foreground hover:bg-neutral-300 hover:text-gray-700 dark:hover:bg-neutral-300 rounded-sm transition"
+              />
+            )}
+          </nav>
+        )}
       </div>
     </>
   );
